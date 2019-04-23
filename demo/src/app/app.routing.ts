@@ -5,6 +5,7 @@ import { CustomRangesComponent } from './custom-ranges/custom-ranges.component';
 import { SingleDatepickerComponent } from './single-datepicker/single-datepicker.component';
 import { TimepickerComponent } from './timepicker/timepicker.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ResponsiveDatepickerComponent } from './responsive-datepicker/responsive-datepicker.component';
 
 export const AppRoutes: Routes = [
     {
@@ -35,5 +36,9 @@ export const AppRoutes: Routes = [
     {
         path: 'reactive-forms',
         component: ReactiveFormComponent,
+    },
+    {
+        path: 'responsive',
+        component: ResponsiveDatepickerComponent
     }
 ];

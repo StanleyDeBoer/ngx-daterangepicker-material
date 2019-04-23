@@ -296,8 +296,8 @@ export class DaterangepickerDirective implements OnInit, OnChanges, DoCheck {
           }
       }
       if (style) {
-        this._renderer.setStyle(container, 'top', style.top);
-        this._renderer.setStyle(container, 'left', style.left);
+        // this._renderer.setStyle(container, 'top', '15%');
+        // this._renderer.setStyle(container, 'left', '0px');
         this._renderer.setStyle(container, 'right', style.right);
       }
 

@@ -22,6 +22,7 @@ import { SingleDatepickerComponent } from './single-datepicker/single-datepicker
 import { CustomRangesComponent } from './custom-ranges/custom-ranges.component';
 import { TimepickerComponent } from './timepicker/timepicker.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ResponsiveDatepickerComponent } from './responsive-datepicker/responsive-datepicker.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     SingleDatepickerComponent,
     CustomRangesComponent,
     ReactiveFormComponent,
-    TimepickerComponent
+    TimepickerComponent,
+    ResponsiveDatepickerComponent
   ],
   imports: [
     BrowserModule,

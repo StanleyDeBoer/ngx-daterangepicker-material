@@ -70,7 +70,7 @@ $input-height: 3rem !default;
   color: $md-drppicker-color;
   background-color: $md-drppicker-bg-color;
   border-radius: 4px;
-  width: $md-drppicker-width;
+  width: 100%;
   padding: 4px;
   margin-top: -10px;
   overflow: hidden;
@@ -79,7 +79,8 @@ $input-height: 3rem !default;
   background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
   &.double {
-    width: $md-drppicker-width-double;
+    width: auto;
+    top: 25%;
   }
   &.inline {
     position: relative;
@@ -185,9 +186,33 @@ $input-height: 3rem !default;
     }
   }
 
+  @media only screen and (min-width: 768px) {
+    .calendar {
+      display: none;
+      max-width: 100%;
+      margin: $md-drppicker-calendar-margin;
+  
+      &.single {
+        .calendar-table {
+          border: none;
+        }
+      }
+  
+      th, td {
+        padding: 0;
+        white-space: nowrap;
+        text-align: center;
+        min-width: 32px;
+        span {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
   .calendar {
     /* display: none; */
-    max-width: $md-drppicker-width - ($md-drppicker-calendar-margin * 2);
+    // max-width: $md-drppicker-width - ($md-drppicker-calendar-margin * 2);
     margin: $md-drppicker-calendar-margin;
 
     &.single {
@@ -623,8 +648,7 @@ $input-height: 3rem !default;
 
 @media (min-width: 564px) {
   .md-drppicker {
-    width: auto;
-
+    width: 100%;
     &.single {
       .calendar.left {
         clear: none;
@@ -733,10 +757,15 @@ $input-height: 3rem !default;
   }
 }
 
-@media (min-width: 730px) {
+@media (max-width: 730px) {
   .md-drppicker {
+    &.double {
+      width: 100%;
+      left: 0;
+      top: 15%;
+    }
     .ranges {
-      width: auto;
+      width: 100%;
     }
     &.ltr {
       .ranges {
