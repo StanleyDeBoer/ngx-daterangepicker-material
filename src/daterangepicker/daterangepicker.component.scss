@@ -17,10 +17,10 @@ $md-drppicker-in-range-border-color:      transparent !default;
 $md-drppicker-in-range-bg-color:          #dde2e4 !default;
 
 $md-drppicker-active-color:               #fff !default;
-$md-drppicker-active-bg-color:            #3f51b5 !default;
+$md-drppicker-active-bg-color:            #48ad59 !default;
 $md-drppicker-active-border-color:        transparent !default;
 
-$md-drppicker-unselected-color:           #999 !default;
+$md-drppicker-unselected-color:           rgb(200, 200, 200) !default;
 $md-drppicker-unselected-border-color:    transparent !default;
 $md-drppicker-unselected-bg-color:        #fff !default;
 
@@ -61,30 +61,34 @@ $select-background: rgba(255, 255, 255, 0.90) !default;
 $select-padding: 5px !default;
 $select-radius: 2px !default;
 $input-height: 3rem !default;
+
+$border-radius: 3px;
 /*
 * styles
 */
 .md-drppicker {
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   font-family: Roboto, sans-serif;
   color: $md-drppicker-color;
-  background-color: $md-drppicker-bg-color;
-  border-radius: 4px;
-  width: 100%;
-  padding: 4px;
+  background-color: #f3f6f7;
+  border-radius: $border-radius;
+  width: 80%;
+  padding: 0;
   margin-top: -10px;
   overflow: hidden;
   z-index: 1000;
   font-size: 14px;
-  background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
   &.double {
-    width: auto;
     top: 25%;
   }
   &.inline {
+    width: 100%;
     position: relative;
-    display: inline-block;
   }
 
   &:before, &:after {
@@ -115,12 +119,6 @@ $input-height: 3rem !default;
     }
   }
 
-  &.single {
-    .ranges, .calendar {
-      float: none;
-    }
-  }
-
   &.shown {
     transform: scale(1);
     transition: all 0.1s ease-in-out;
@@ -147,9 +145,6 @@ $input-height: 3rem !default;
     }
     &.drops-up-center {
       transform-origin: 50%% 100%;
-    }
-    .calendar {
-      display: block;
     }
   }
   &.hidden {
@@ -180,46 +175,16 @@ $input-height: 3rem !default;
     &.drops-up-center {
       transform-origin: 50%% 100%;
     }
-    
-    .calendar {
-      display: none;
-    }
-  }
 
-  @media only screen and (min-width: 768px) {
     .calendar {
       display: none;
-      max-width: 100%;
-      margin: $md-drppicker-calendar-margin;
-  
-      &.single {
-        .calendar-table {
-          border: none;
-        }
-      }
-  
-      th, td {
-        padding: 0;
-        white-space: nowrap;
-        text-align: center;
-        min-width: 32px;
-        span {
-          pointer-events: none;
-        }
-      }
     }
   }
 
   .calendar {
-    /* display: none; */
-    // max-width: $md-drppicker-width - ($md-drppicker-calendar-margin * 2);
-    margin: $md-drppicker-calendar-margin;
-
-    &.single {
-      .calendar-table {
-        border: none;
-      }
-    }
+    flex: 1 1 auto;
+    background: white;
+    margin: 0;
 
     th, td {
       padding: 0;
@@ -227,6 +192,8 @@ $input-height: 3rem !default;
       text-align: center;
       min-width: 32px;
       span {
+        display: block;
+        position: relative;
         pointer-events: none;
       }
     }
@@ -234,7 +201,7 @@ $input-height: 3rem !default;
 
   .calendar-table {
     border: $md-drppicker-calendar-border-size solid $md-drppicker-calendar-border-color;
-    padding: $md-drppicker-calendar-margin;
+    padding: $md-drppicker-calendar-margin * 2;
     border-radius: $md-drppicker-calendar-border-radius;
     background-color: $md-drppicker-calendar-bg-color;
   }
@@ -245,6 +212,9 @@ $input-height: 3rem !default;
   }
   th {
     color: #988c8c;
+    &.month {
+      color: $md-drppicker-active-bg-color;
+    }
   }
   td, th {
     text-align: center;
@@ -396,7 +366,7 @@ $input-height: 3rem !default;
         margin: 0;
         cursor: default;
       }
-      &.hourselect, 
+      &.hourselect,
       &.minuteselect,
       &.secondselect,
       &.ampmselect {
@@ -413,9 +383,9 @@ $input-height: 3rem !default;
       &.yearselect {
         cursor: pointer;
         opacity: 0;
-        position: absolute; 
-        top: 0; 
-        left: 0; 
+        position: absolute;
+        top: 0;
+        left: 0;
         margin: 0;
         padding: 0;
       }
@@ -423,7 +393,7 @@ $input-height: 3rem !default;
   }
 
   th.month > div {
-    position: relative; 
+    position: relative;
     display: inline-block;
   }
 
@@ -476,7 +446,7 @@ $input-height: 3rem !default;
       }
     }
   }
-  
+
   .calendar-time select.disabled {
     color: #ccc;
     cursor: not-allowed;
@@ -523,12 +493,12 @@ $input-height: 3rem !default;
   /* ranges */
   .show-ranges {
     .drp-calendar.left {
-      border-left: 1px solid #ddd;
+      border-left: 1px solid #f3f6f7;
     }
   }
 
   .ranges {
-    float: none;
+    flex: 0 0 auto;
     text-align: left;
     margin: 0;
     ul {
@@ -546,7 +516,7 @@ $input-height: 3rem !default;
           text-align: left;
           cursor: pointer;
           &.active {
-            background-color: #3f51b5;
+            background-color: #48ad59;
             color: #fff;
           }
           &[disabled] {
@@ -568,7 +538,7 @@ $input-height: 3rem !default;
       margin-top: 8px;
     }
   }
-    
+
   [hidden] {
     display: none;
   }
@@ -576,26 +546,42 @@ $input-height: 3rem !default;
   /* button */
   .buttons {
     text-align: right;
-    margin: 0 5px 5px 0;
+    flex: 1 0 100%;
+    padding: 0.5rem;
+    .btn {
+      margin-left: 0.5rem;
+    }
   }
   .btn {
-    position: relative;
-    overflow: hidden;
-    border-width: 0;
-    outline: none;
-    padding: 0px 6px;
+    border-radius: 3px;
+    line-height: 1em;
+    padding: 0.75rem 1.5rem;
+    margin: 0.3rem;
+    font-weight: 500;
+    color: #48ad59;
+    font-size: 1.1rem;
+    background-color: white;
+    user-select: none;
     cursor: pointer;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-    background-color: #3f51b5;
-    color: #ecf0f1;
-    transition: background-color .4s;
-    height: auto;
-    text-transform: uppercase;
-    line-height: 36px;
+    outline: 0;
     border: none;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0,0,0);
+    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1), 0px 2px 3px 0px rgba(0, 0, 0, 0.12);
     &:hover, &:focus {
-      background-color: #3f51b5;
+      background-color: #48ad59;
+      color: white;
     }
     & > * {
       position: relative;
@@ -648,7 +634,6 @@ $input-height: 3rem !default;
 
 @media (min-width: 564px) {
   .md-drppicker {
-    width: 100%;
     &.single {
       .calendar.left {
         clear: none;
@@ -691,10 +676,6 @@ $input-height: 3rem !default;
       .calendar.left .calendar-table {
         padding-right: 12px;
       }
-
-      .ranges, .calendar {
-        float: left;
-      }
     }
     &.rtl {
       direction: rtl;
@@ -729,11 +710,6 @@ $input-height: 3rem !default;
       .calendar.left .calendar-table {
         padding-left: 12px;
       }
-
-      .ranges, .calendar {
-        text-align: right;
-        float: right;
-      }
     }
   }
   .drp-animate {
@@ -766,16 +742,6 @@ $input-height: 3rem !default;
     }
     .ranges {
       width: 100%;
-    }
-    &.ltr {
-      .ranges {
-        float: left;
-      }
-    }
-    &.rtl {
-      .ranges {
-        float: right;
-      }
     }
 
     .calendar.left {
