@@ -31,7 +31,7 @@
     "ngc": "./node_modules/.bin/ngc -p tsconfig.json",
     "gh-pages": "ng build --prod --base-href=\"/ngx-daterangepicker-material/\" && ngh --dir demo/dist",
     "build": "ng-packagr -p package.json",
-    "prepare": "npm run build"
+    "prepare": "npm run build && cp dist/* . -r"
   },
   "author": "Fetrarijaona R.",
   "repository": {
